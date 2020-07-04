@@ -1,0 +1,21 @@
+.card-container {
+    margin-top: 10px;
+
+    .card {
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+}
+.card-min {
+    min-height: 500px;
+}
+.card-min-un {
+    min-height: 275px;
+}
+.img-box {
+    height: 175px;
+    width: 175px;
+}
+.active-link {
+    cursor: pointer;
+}

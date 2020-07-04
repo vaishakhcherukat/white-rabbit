@@ -1,0 +1,86 @@
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item" [ngClass]="{'active': selectedTab == 'answered'}">
+          <a class="nav-link active-link" (click)="selectedTab = 'answered'">Answered</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': selectedTab == 'notanswered'}">
+          <a class="nav-link active-link" (click)="selectedTab = 'notanswered'">Not Answered</a>
+        </li>
+        <li class="nav-item" [ngClass]="{'active': selectedTab == 'favourites'}">
+            <a class="nav-link active-link"  (click)="selectedTab = 'favourites'">Favourites</a>
+          </li>
+      </ul>
+    </div>
+    <div>
+        <button type="button" class="btn btn-warning" (click)="logout()">Logout</button>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search" placeholder="Keyword" [(ngModel)]="request.tagged" name="keyword">
+        <input class="form-control mr-sm-2" type="search" placeholder="Title" [(ngModel)]="request.title" name="title">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" (click)="getData()">Search</button>
+    </form>
+</nav>
+<div class="col-md-12 card-container" *ngIf="selectedTab == 'answered'">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let item of questions.answered">
+          <div class="card card-min">
+            <div class="col-md-6">
+                <img class="card-img-top img-box" [src]="item.owner.profile_image">
+            </div>
+            <div class="col-md-6">
+                <p>Name : <a target="_blank" [href]="item.owner.link">{{item.owner.display_name}}</a></p>
+                <p>Status : {{item.owner.user_type}}</p>
+                <p>User # : {{item.owner.user_id}}</p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Question : </h5>
+              <p class="card-text">{{item.title}}</p>
+              <a [href]="item.link" target="_blank" class="btn btn-primary">Open question</a>
+              <button style="margin-left: 10px;" type="button" class="btn btn-success" *ngIf="!item.isFavourite" (click)="markAsFavourite(item)">Mark as Favourite</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 card-container" *ngIf="selectedTab == 'notanswered'">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let item of questions.unanswered">
+          <div class="card card-min-un">
+            <div class="card-body">
+              <h5 class="card-title">Question : </h5>
+              <p class="card-text" [innerHTML]="item.title"></p>
+              <a [href]="item.link" target="_blank" class="btn btn-primary">Open question</a>
+              <button style="margin-left: 10px;" type="button" class="btn btn-success" *ngIf="!item.isFavourite" (click)="markAsFavourite(item)">Mark as Favourite</button>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-12 card-container" *ngIf="selectedTab == 'favourites'">
+    <div class="row">
+        <div class="col-sm-4" *ngFor="let item of favourites">
+          <div class="card card-min">
+            <div class="col-md-6">
+                <img class="card-img-top img-box" [src]="item.owner.profile_image">
+            </div>
+            <div class="col-md-6">
+                <p>Name : <a target="_blank" [href]="item.owner.link">{{item.owner.display_name}}</a></p>
+                <p>Status : {{item.owner.user_type}}</p>
+                <p>User # : {{item.owner.user_id}}</p>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Question : </h5>
+              <p class="card-text">{{item.title}}</p>
+              <a [href]="item.link" target="_blank" class="btn btn-primary">Open question</a>
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap');
+*{
+    padding: 0;
+    // margin: 0;
+    outline: none;
+}
+body{
+    font-family: 'Roboto', sans-serif !important;
+    // height:100vh;
+    color: #3a3e42 !important;
+}
+.container {
+    height: 100%;      
+    position: absolute;
+    .cont-row {
+        height: 100%;
+        margin: 0 auto;
+
+        .form-class {
+            height: 450px;
+
+            .app-form {
+                height: 100%;
+                
+                .app-form-left {
+                    width: calc(100% - 100px);
+                }
+
+                .row {
+                    height: 100%;
+
+                    .auth-error {
+                        color: red;
+                        font-weight: 100;
+                        padding: 15px;
+                        font-size: 10px;
+                    }
+                }
+            }
+        }
+    }
+}
+.app-form .app-form-left h1{
+    font-size: 35px;
+}
+.app-form .app-form-left input:focus{
+    border-color: #ced4da;
+}
+.app-form .app-form-left input::placeholder{
+   font-size: 15px;
+}
+.app-form .app-form-left i{
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.app-form .app-form-left a{
+    color: #3a3e42 ;
+}
+.app-form .app-form-left button{
+    background: linear-gradient(45deg,#8D334C,#CF6964);
+    border-radius: 30px;
+}
+.app-form .app-form-left p span{
+  color: #007bff;
+}
+.app-form .app-form-right{
+    background-image: url('https://i.ibb.co/tDLqQtj/bg.jpg');
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+.app-form .app-form-right:after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 450px;
+    background: linear-gradient(45deg,#8D334C,#CF6964);
+    opacity: 0.5;
+}
+.app-form .app-form-right h2{
+    z-index: 1;
+}
+.app-form .app-form-right h2::after{
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background-color: #fff;
+  bottom: 0;
+  left:50%;
+  transform: translateX(-50%);
+}
+.app-form .app-form-right p{
+    z-index: 1;
+}

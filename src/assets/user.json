@@ -1,0 +1,8 @@
+{
+    "username": "admin",
+    "password": "admin123",
+    "isLoggedIn": false,
+    "name": "Admin User",
+    "email": "admin123@test.in",
+    "phone": "9987667564"
+}

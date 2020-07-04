@@ -1,0 +1,35 @@
+<div class="container col-md-12">
+    <div class="row cont-row col-md-9 justify-content-center align-items-center">
+        <form class="col-md-12 form-class">
+            <div class="app-form shadow-lg">
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-center align-items-center">
+                        <div class="app-form-left ">
+                            <h1>Login</h1>
+                            <div class="form-group position-relative mb-4">
+                                <input type="text" class="form-control border-top-0 border-right-0 border-left-0 rounded-0 shadow-none" id="username"
+                                    placeholder="Username" [(ngModel)]="creds.username" name="username">
+                                    <i class="fa fa-user-o"></i>
+                            </div>
+                            <div class="form-group position-relative mb-4">
+                                <input type="password" class="form-control border-top-0 border-right-0 border-left-0 rounded-0 shadow-none" id="password"
+                                    placeholder="Password" [(ngModel)]="creds.password" name="password">
+                                <i class="fa fa-key"></i>
+                            </div>
+                            <button class="btn btn-success btn-block shadow border-0 py-2 text-uppercase" (click)="loginUser()">
+                                Login
+                            </button>
+                            <p class="auth-error" *ngIf="loginError">* {{loginError}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="app-form-right position-relative d-flex justify-content-center flex-column align-items-center text-center p-5 text-white">
+                            <h2 class="position-relative px-4 pb-3 mb-4">Welcome</h2>
+                            <p>Lorem ipsuing elit. Molomos totam est voluptatum i omos totam est voluptatum i ure sit consectetur ill</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
